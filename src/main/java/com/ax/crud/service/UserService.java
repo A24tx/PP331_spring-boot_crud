@@ -5,15 +5,17 @@ import com.ax.crud.model.User;
 
 import java.util.List;
 
-public abstract class UserService {
+public interface UserService {
 
-    public abstract void saveUser(User u);
+    void saveUser(User u);
 
-    public abstract List<User> getUsers();
+    void updateUser(User u);
 
-    public abstract User getUserById(Long id);
+    List<User> getUsers();
 
-    public abstract void removeUser(Long id);
+    User getUserById(Long id);
+
+    void removeUser(Long id);
 
 
 }

@@ -8,27 +8,27 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class TableController {
+public class UserTableController {
 
     private UserService us;
 
-    public TableController(UserService us) {
+    public UserTableController(UserService us) {
         this.us = us;
     }
 
     @GetMapping(value = "/")
-    public String index() {
+    public String showIndex() {
         return "redirect:/table";
     }
 
     @GetMapping("/table")
-    public String table(Model model) {
+    public String showUserTable(Model model) {
         model.addAttribute("users", us.getUsers());
         return "table";
     }
 
     @GetMapping("/updateUserForm/{id}")
-    public String showFormForUpdating(@PathVariable(value = "id") long id, Model model) {
+    public String showFormForUpdatingUser(@PathVariable(value = "id") long id, Model model) {
         User user = us.getUserById(id);
 
         model.addAttribute("user", user);
@@ -42,7 +42,7 @@ public class TableController {
     }
 
     @GetMapping("/newUserForm")
-    public String showFormForAdding(Model model) {
+    public String showFormForAddingUser(Model model) {
         User u = new User();
         model.addAttribute("user", u);
         return "addUser";
@@ -50,7 +50,7 @@ public class TableController {
 
     @PostMapping("/updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
-        us.saveUser(user);
+        us.updateUser(user);
         return "redirect:/table";
     }
 
