@@ -2,10 +2,11 @@ package com.ax.crud.model;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
-@Table(name = "userstable")
+@Table(name = "userstable_pp331")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,5 +61,18 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return getId() == user.getId() && getAge() == user.getAge() && Objects.equals(getName(), user.getName()) && Objects.equals(getCountry(), user.getCountry());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getAge(), getCountry());
     }
 }
