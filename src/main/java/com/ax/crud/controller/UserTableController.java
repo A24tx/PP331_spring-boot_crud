@@ -1,4 +1,4 @@
-package com.ax.crud.controllers;
+package com.ax.crud.controller;
 
 import com.ax.crud.model.User;
 import com.ax.crud.service.UserService;

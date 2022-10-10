@@ -1,4 +1,4 @@
-package com.ax.crud.repositories;
+package com.ax.crud.repository;
 
 import com.ax.crud.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

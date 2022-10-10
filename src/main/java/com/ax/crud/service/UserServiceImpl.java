@@ -1,7 +1,7 @@
 package com.ax.crud.service;
 
 import com.ax.crud.model.User;
-import com.ax.crud.repositories.UserRepository;
+import com.ax.crud.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
