@@ -23,15 +23,6 @@ public class UserServiceImpl implements UserService {
         repository.save(u);
     }
 
-    public void updateUser(User u) {
-        Optional<User> fromDB = repository.findById(u.getId());
-        if (fromDB.isPresent()) {
-            User userFromDB = fromDB.get();
-            userFromDB.setAge(u.getAge());
-            userFromDB.setCountry(u.getCountry());
-            userFromDB.setName(u.getName());
-        }
-    }
     @Override
     public void updateUser(User u) {
         Optional<User> fromDB = repository.findById(u.getId());
